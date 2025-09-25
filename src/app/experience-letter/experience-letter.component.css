@@ -1,7 +1,18 @@
-/* Component-specific styles if needed */
-/* Most styling is now handled by Tailwind CSS utility classes */
-
-/* Custom styles for any specific requirements */
+/* Component-specific styles - minimal overrides only */
 .letter-container {
-  /* Additional custom styles if needed */
+  /* Ensure proper spacing and layout */
+  min-height: 100vh;
+}
+
+/* Custom form input styles for validation */
+.form-input {
+  @apply w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
+}
+
+.form-input.invalid {
+  @apply border-red-500;
+}
+
+.form-input.invalid:focus {
+  @apply border-red-500 ring-red-200;
 }

@@ -1,110 +1,114 @@
-<div class="letter-container">
+<div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
   <!-- Input Form -->
-  <div class="form-container" *ngIf="showForm">
-    <div class="form-header">
-      <h2>Experience Letter Generator</h2>
-      <p>Fill in the details to generate the experience letter</p>
+  <div class="p-6 md:p-8 lg:p-12 bg-white" *ngIf="showForm">
+    <div class="text-center mb-8">
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Experience Letter Generator</h2>
+      <p class="text-gray-600 text-sm md:text-base">Fill in the details to generate the experience letter</p>
     </div>
     
-    <form class="letter-form" [formGroup]="letterForm">
-      <div class="form-row">
-        <div class="form-group">
-          <label for="date">Letter Date</label>
+    <form class="max-w-2xl mx-auto" [formGroup]="letterForm">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6">
+        <div>
+          <label for="date" class="block text-sm font-medium text-gray-700 mb-2">Letter Date</label>
           <input
             type="date"
             id="date"
             formControlName="dateInput"
             name="date"
-            class="form-input"
-            [class.invalid]="letterForm.get('dateInput')?.invalid && letterForm.get('dateInput')?.touched">
-          <div class="error-message" *ngIf="letterForm.get('dateInput')?.invalid && letterForm.get('dateInput')?.touched">
+            class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm md:text-base"
+            [class.border-red-500]="letterForm.get('dateInput')?.invalid && letterForm.get('dateInput')?.touched">
+          <div class="text-red-500 text-xs mt-1" *ngIf="letterForm.get('dateInput')?.invalid && letterForm.get('dateInput')?.touched">
             Letter date is required
           </div>
         </div>
         
-        <div class="form-group">
-          <label for="employeeCode">Employee Code</label>
+        <div>
+          <label for="employeeCode" class="block text-sm font-medium text-gray-700 mb-2">Employee Code</label>
           <input
             type="text"
             id="employeeCode"
             formControlName="employeeCode"
             name="employeeCode"
             placeholder="e.g., 1157"
-            class="form-input"
-            [class.invalid]="letterForm.get('employeeCode')?.invalid && letterForm.get('employeeCode')?.touched">
-          <div class="error-message" *ngIf="letterForm.get('employeeCode')?.invalid && letterForm.get('employeeCode')?.touched">
+            class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm md:text-base"
+            [class.border-red-500]="letterForm.get('employeeCode')?.invalid && letterForm.get('employeeCode')?.touched">
+          <div class="text-red-500 text-xs mt-1" *ngIf="letterForm.get('employeeCode')?.invalid && letterForm.get('employeeCode')?.touched">
             Employee code is required
           </div>
         </div>
       </div>
 
-      <div class="form-row">
-        <div class="form-group">
-          <label for="title">Title</label>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6">
+        <div>
+          <label for="title" class="block text-sm font-medium text-gray-700 mb-2">Title</label>
           <select
             id="title"
             formControlName="title"
             name="title"
-            class="form-input"
-            [class.invalid]="letterForm.get('title')?.invalid && letterForm.get('title')?.touched">
+            class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm md:text-base"
+            [class.border-red-500]="letterForm.get('title')?.invalid && letterForm.get('title')?.touched">
             <option value="Mr">Mr</option>
             <option value="Mrs">Mrs</option>
             <option value="Ms">Ms</option>
           </select>
-          <div class="error-message" *ngIf="letterForm.get('title')?.invalid && letterForm.get('title')?.touched">
+          <div class="text-red-500 text-xs mt-1" *ngIf="letterForm.get('title')?.invalid && letterForm.get('title')?.touched">
             Title is required
           </div>
         </div>
         
-        <div class="form-group">
-          <label for="employeeName">Employee Name</label>
+        <div>
+          <label for="employeeName" class="block text-sm font-medium text-gray-700 mb-2">Employee Name</label>
           <input
             type="text"
             id="employeeName"
             formControlName="employeeName"
             name="employeeName"
             placeholder="e.g., Manvendra Singh"
-            class="form-input"
-            [class.invalid]="letterForm.get('employeeName')?.invalid && letterForm.get('employeeName')?.touched">
-          <div class="error-message" *ngIf="letterForm.get('employeeName')?.invalid && letterForm.get('employeeName')?.touched">
+            class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm md:text-base"
+            [class.border-red-500]="letterForm.get('employeeName')?.invalid && letterForm.get('employeeName')?.touched">
+          <div class="text-red-500 text-xs mt-1" *ngIf="letterForm.get('employeeName')?.invalid && letterForm.get('employeeName')?.touched">
             Employee name is required
           </div>
         </div>
       </div>
 
-      <div class="form-row">
-        <div class="form-group">
-          <label for="startDate">Start Date</label>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-8">
+        <div>
+          <label for="startDate" class="block text-sm font-medium text-gray-700 mb-2">Start Date</label>
           <input
             type="date"
             id="startDate"
             formControlName="startDateInput"
             name="startDate"
-            class="form-input"
-            [class.invalid]="letterForm.get('startDateInput')?.invalid && letterForm.get('startDateInput')?.touched">
-          <div class="error-message" *ngIf="letterForm.get('startDateInput')?.invalid && letterForm.get('startDateInput')?.touched">
+            class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm md:text-base"
+            [class.border-red-500]="letterForm.get('startDateInput')?.invalid && letterForm.get('startDateInput')?.touched">
+          <div class="text-red-500 text-xs mt-1" *ngIf="letterForm.get('startDateInput')?.invalid && letterForm.get('startDateInput')?.touched">
             Start date is required
           </div>
         </div>
         
-        <div class="form-group">
-          <label for="endDate">End Date</label>
+        <div>
+          <label for="endDate" class="block text-sm font-medium text-gray-700 mb-2">End Date</label>
           <input
             type="date"
             id="endDate"
             formControlName="endDateInput"
             name="endDate"
-            class="form-input"
-            [class.invalid]="letterForm.get('endDateInput')?.invalid && letterForm.get('endDateInput')?.touched">
-          <div class="error-message" *ngIf="letterForm.get('endDateInput')?.invalid && letterForm.get('endDateInput')?.touched">
+            class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm md:text-base"
+            [class.border-red-500]="letterForm.get('endDateInput')?.invalid && letterForm.get('endDateInput')?.touched">
+          <div class="text-red-500 text-xs mt-1" *ngIf="letterForm.get('endDateInput')?.invalid && letterForm.get('endDateInput')?.touched">
             End date is required
           </div>
         </div>
       </div>
 
-      <div class="form-actions">
-        <button type="button" class="generate-btn" (click)="generateLetter()" [disabled]="letterForm.invalid">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div class="text-center">
+        <button 
+          type="button" 
+          class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-medium rounded-lg transition-all duration-200 shadow-md hover:shadow-lg disabled:cursor-not-allowed disabled:hover:bg-gray-400 text-sm md:text-base"
+          (click)="generateLetter()" 
+          [disabled]="letterForm.invalid">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5">
             <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M14 2V8H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M16 13H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -118,73 +122,77 @@
   </div>
 
   <!-- Generated Letter -->
-  <div class="letter-content" *ngIf="!showForm" id="letter-content">
+  <div class="p-8 md:p-12 lg:p-16 bg-white min-h-[700px]" *ngIf="!showForm" id="letter-content">
     <!-- Company Header -->
-    <div class="company-header">
-      <div class="company-logo">
-        <img src="assets/codesmotech-logo.png" alt="CODESMOTECH" class="logo-image" />
+    <div class="mb-12">
+      <div class="flex justify-start items-center">
+        <img src="assets/codesmotech-logo.png" alt="CODESMOTECH" class="h-12 md:h-16 w-auto object-contain" />
       </div>
     </div>
 
     <!-- Letter Title -->
-    <div class="letter-title">
-      <h1>Experience Letter</h1>
+    <div class="text-center mb-8">
+      <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800">Experience Letter</h1>
     </div>
 
     <!-- Date -->
-    <div class="date-section">
-      <p><strong>Date : {{ letterData.date }}</strong></p>
+    <div class="mb-8">
+      <p class="text-sm md:text-base text-gray-800"><strong>Date : {{ letterData.date }}</strong></p>
     </div>
 
     <!-- Addressee -->
-    <div class="addressee-section">
-      <p class="addressee"><strong><u>To whomsoever it may concern</u></strong></p>
+    <div class="mb-8 text-center">
+      <p class="text-base md:text-lg text-gray-800"><strong><u>To whomsoever it may concern</u></strong></p>
     </div>
 
     <!-- Main Content -->
-    <div class="main-content">
-      <p class="content-paragraph">
+    <div class="mb-12 leading-relaxed">
+      <p class="text-sm md:text-base text-gray-800 mb-6 text-justify">
         This is to certify that {{ letterData.employeeName }}, employee code - {{ letterData.employeeCode }}
         was employed with {{ letterData.companyFullName }} from {{ letterData.startDate }}
         to {{ letterData.endDate }}.
       </p>
 
-      <p class="content-paragraph">
+      <p class="text-sm md:text-base text-gray-800 mb-6 text-justify">
         At the time of leaving, {{ getSubjectPronoun() }} was designated as a {{ letterData.designation }}.
       </p>
 
-      <p class="content-paragraph">
+      <p class="text-sm md:text-base text-gray-800 mb-6 text-justify">
         {{ getSubjectPronoun() | titlecase }} left the company on {{ getPossessivePronoun() }} own accord. During {{ getPossessivePronoun() }} tenure, we
         found {{ getFirstName() }} to be hardworking, responsible and true to {{ getPossessivePronoun() }}
         business ethics.
       </p>
 
-      <p class="content-paragraph">
+      <p class="text-sm md:text-base text-gray-800 text-justify">
         We wish {{ getObjectPronoun() }} all the best for {{ getPossessivePronoun() }} future endeavours.
       </p>
     </div>
 
     <!-- Signature Section -->
-    <div class="signature-section">
-      <p><strong>Yours Sincerely,</strong></p>
-      <div class="signature">
-        <img src="assets/signature.png" alt="Signature" class="signature-image" />
+    <div class="mt-12">
+      <p class="text-sm md:text-base text-gray-800 mb-3"><strong>Yours Sincerely,</strong></p>
+      <div class="mb-8">
+        <img src="assets/signature.png" alt="Signature" class="max-w-[150px] md:max-w-[200px] h-auto block" />
       </div>
-      <p class="designation">HR at {{ letterData.companyFullName }}</p>
+      <p class="text-sm md:text-base text-gray-800">HR at {{ letterData.companyFullName }}</p>
     </div>
   </div>
 
   <!-- Action Buttons -->
-  <div class="print-section no-print" *ngIf="!showForm">
-    <button class="edit-btn" (click)="toggleForm()">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <div class="p-4 bg-gray-50 text-center border-t border-gray-200" *ngIf="!showForm">
+    <button 
+      class="inline-flex items-center gap-2 px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white font-medium rounded-md transition-all duration-200 shadow-sm hover:shadow-md mx-2 text-sm md:text-base"
+      (click)="toggleForm()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5">
         <path d="M11 4H4C3.46957 4 2.96086 4.21071 2.58579 4.58579C2.21071 4.96086 2 5.46957 2 6V20C2 20.5304 2.21071 21.0391 2.58579 21.4142C2.96086 21.7893 3.46957 22 4 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         <path d="M18.5 2.50023C18.8978 2.10243 19.4374 1.87891 20 1.87891C20.5626 1.87891 21.1022 2.10243 21.5 2.50023C21.8978 2.89804 22.1213 3.43762 22.1213 4.00023C22.1213 4.56284 21.8978 5.10243 21.5 5.50023L12 15.0002L8 16.0002L9 12.0002L18.5 2.50023Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
       Edit Details
     </button>
-    <button class="pdf-btn" (click)="generatePDF()">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <button 
+      class="inline-flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-medium rounded-md transition-all duration-200 shadow-sm hover:shadow-md mx-2 text-sm md:text-base"
+      (click)="generatePDF()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5">
         <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         <path d="M14 2V8H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         <path d="M16 13H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
