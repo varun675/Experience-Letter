@@ -38,7 +38,8 @@ export class ExperienceLetterComponent {
       title: ['Mr', Validators.required],
       employeeName: ['', Validators.required],
       startDateInput: ['', Validators.required],
-      endDateInput: ['', Validators.required]
+      endDateInput: ['', Validators.required],
+      designation: ['', Validators.required]
     });
   }
 
@@ -59,6 +60,7 @@ export class ExperienceLetterComponent {
     this.letterData.employeeCode = this.letterForm.value.employeeCode;
     this.letterData.title = this.letterForm.value.title;
     this.letterData.employeeName = this.letterForm.value.employeeName;
+    this.letterData.designation = this.letterForm.value.designation;
     
     this.showForm = false;
   }
